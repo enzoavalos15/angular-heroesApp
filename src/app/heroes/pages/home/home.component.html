@@ -1,5 +1,36 @@
-<h1>la pagina jome</h1>
-<hr>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="push">
+    <mat-toolbar>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon >home</mat-icon>
+        </button>
+        <span >Menu</span>
+    </mat-toolbar>
+    <mat-nav-list (click)="sidenav.toggle()">
+      <a mat-list-item routerLink="./listado">
+        <mat-icon mat-list-icon>format_list_bulleted</mat-icon>
+        <span>Listado de heroes</span>
+      </a>
+      <a mat-list-item routerLink="./buscar">
+        <mat-icon mat-list-icon>search</mat-icon>
+        <span>Buscar heroes</span>
+      </a>
+      <a mat-list-item routerLink="./agregar">
+        <mat-icon mat-list-icon>add</mat-icon>
+        <span>Agregar heroes</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-<router-outlet></router-outlet>
+  <mat-toolbar>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <button mat-button >Logout</button>
+  </mat-toolbar>
+  <div class="container">
 
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
