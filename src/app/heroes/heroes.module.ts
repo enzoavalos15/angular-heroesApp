@@ -18,6 +18,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { HeroeCardComponent } from './components/heroe-card/heroe-card.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     HomeComponent,
     ListadoComponent,
     HeroeCardComponent,
-    ImagenPipe
+    ImagenPipe,
+    DialogComponent
   ],
   imports: [
     CommonModule,

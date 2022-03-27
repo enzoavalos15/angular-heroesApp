@@ -1,0 +1,6 @@
+<h3>Borrar heroe</h3>
+<h5>¿Está seguro de borrar a <strong>{{ data.superhero }}?</strong></h5>
+<div fxLayout>
+    <button mat-button (click)="closeDialog()" >No, cancelar</button>
+    <button mat-button (click)="delete()" class="spacer" color="warn">Sí, borrar</button>
+</div>

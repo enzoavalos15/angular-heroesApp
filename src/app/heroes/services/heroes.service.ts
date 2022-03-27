@@ -8,7 +8,6 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class HeroesService {
-
   heroesUrl: string = environment.apiUrl + '/heroes';
 
   constructor(private http: HttpClient) {}
@@ -17,11 +16,23 @@ export class HeroesService {
     return this.http.get<Heroe[]>(this.heroesUrl);
   }
 
-  getHeroePorId( id:string ):Observable<Heroe>{
-    return this.http.get<Heroe>(`${ this.heroesUrl }/${ id }`);
+  getHeroePorId(id: string): Observable<Heroe> {
+    return this.http.get<Heroe>(`${this.heroesUrl}/${id}`);
   }
 
-  getSugerencias( termino:string ):Observable<Heroe[]>{
-    return this.http.get<Heroe[]>(`${ this.heroesUrl }?q=${ termino }&_limit=6`);
+  getSugerencias(termino: string): Observable<Heroe[]> {
+    return this.http.get<Heroe[]>(`${this.heroesUrl}?q=${termino}&_limit=6`);
+  }
+
+  postHeroe(heroe: Heroe): Observable<Heroe> {
+    return this.http.post<Heroe>(this.heroesUrl, heroe);
+  }
+
+  putHeroe(heroe: Heroe): Observable<Heroe> {
+    return this.http.put<Heroe>(`${this.heroesUrl}/${heroe.id}`, heroe);
+  }
+
+  deleteHeroe(id: string): Observable<any> {
+    return this.http.delete<any>(`${this.heroesUrl}/${id}`);
   }
 }
